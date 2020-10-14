@@ -1,0 +1,9 @@
+/.*/
+!/.github/
+node_modules/
+/coverage/
+/umd/
+/lib/
+/src/*.js
+/src/*.map
+*.tgz

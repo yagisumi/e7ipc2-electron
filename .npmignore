@@ -1,0 +1,12 @@
+.*
+yarn.lock
+yarn-error.log
+*.tgz
+/test/
+/docs/
+/config/
+/coverage/
+/*.json
+/*.js
+tsconfig.json
+tsconfig.*.json

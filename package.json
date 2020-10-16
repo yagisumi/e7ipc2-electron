@@ -6,7 +6,6 @@
   "engines": {
     "node": ">= 10.0.0"
   },
-  "private": true,
   "main": "lib/e7ipc2-electron.js",
   "types": "lib/e7ipc2-electron.d.ts",
   "unpkg": "umd/e7ipc2-electron.js",

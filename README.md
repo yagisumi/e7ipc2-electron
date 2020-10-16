@@ -1,6 +1,6 @@
 # @yagisumi/e7ipc2-electron
 
-Welcome
+Electron IPC wrapper using invoke and handle.
 
 [![NPM version][npm-image]][npm-url] [![install size][packagephobia-image]][packagephobia-url] [![TypeScript][typescript-image]][typescript-url]  
 [![Build Status][githubactions-image]][githubactions-url] [![Coverage percentage][coveralls-image]][coveralls-url]
@@ -14,7 +14,7 @@ $ npm i @yagisumi/e7ipc2-electron
 
 ## Requirements
 
-`electron` v7 or later
+`electron` v8 or later
 
 ## Usage
 

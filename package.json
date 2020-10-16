@@ -54,5 +54,8 @@
   },
   "dependencies": {
     "@yagisumi/e7ipc2-types": "^0.1.0"
+  },
+  "peerDependencies": {
+    "electron": ">=8.5"
   }
 }

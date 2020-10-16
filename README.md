@@ -42,7 +42,7 @@ type ERR = {
 Define commands with `DefineCommands`.  
 The argument of the command is specified by `opts`, 
 and the return value is specified by `ret`. `opts` can be omitted.  
-Here, we also define the channel to be used in `ipcMain`.
+Here, we also define the channel to be used in `ipcMain` and `ipcRenderer`.
 
 ```ts
 // commands.ts

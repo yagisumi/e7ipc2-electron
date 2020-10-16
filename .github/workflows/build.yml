@@ -1,0 +1,36 @@
+name: build
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    name: ${{ matrix.os }} / node-v${{ matrix.node }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        node: [10, 12, 14]
+    steps:
+      - name: Set git to use LF
+        if: matrix.os == 'windows-latest'
+        run: |
+          git config --global core.autocrlf false
+          git config --global core.eol lf
+      - uses: actions/checkout@v2
+      - name: Set Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+      - name: node environment
+        run: |
+          node -v
+          npm -v
+      - run: npm ci
+      - run: npm test
+      - name: Coveralls
+        if: matrix.os == 'ubuntu-latest' && matrix.node == 14
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.github_token }}

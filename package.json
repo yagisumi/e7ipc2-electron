@@ -1,26 +1,22 @@
 {
   "name": "@yagisumi/e7ipc2-electron",
   "version": "0.1.0",
-  "description": "TODO",
+  "description": "Electron IPC wrapper using invoke and handle.",
   "keywords": [],
   "engines": {
     "node": ">= 10.0.0"
   },
   "private": true,
-  "main": "lib/e7ipc2-electron",
-  "module": "lib/e7ipc2-electron.mjs",
+  "main": "lib/e7ipc2-electron.js",
   "types": "lib/e7ipc2-electron.d.ts",
   "unpkg": "umd/e7ipc2-electron.js",
   "scripts": {
-    "test": "run-s prettier:check eslint:check jest",
-    "jest": "jest --config config/jest.config.js",
-    "mocha": "cross-env TS_NODE_FILES=true TS_NODE_PROJECT=test/tsconfig.mocha.json mocha --config config/.mocharc.json \"test/**/*.test.ts\"",
+    "test": "run-s prettier:check eslint:check mocha:coverage",
+    "mocha": "cross-env TS_NODE_FILES=true mocha --config config/.mocharc.json \"test/**/*.test.ts\"",
     "mocha:coverage": "nyc --nycrc-path config/nyc.config.js npm run mocha -- --no-parallel",
     "build": "run-s clean build:*",
     "clean": "rimraf lib coverage umd *.tgz .rpt2_cache .nyc_output",
     "build:cjs": "rollup -c config/rollup.config.js -f cjs -o ./lib/e7ipc2-electron.js",
-    "build:mjs": "rollup -c config/rollup.config.js -f es -o ./lib/e7ipc2-electron.mjs",
-    "build:umd": "rollup -c config/rollup.config.umd.js",
     "build:d_ts": "tsc -p src -d --emitDeclarationOnly --outDir ./lib",
     "prettier:check": "prettier --check \"**/*.{ts,js,json}\"",
     "prettier:fix": "prettier --write \"**/*.{ts,js,json}\"",
@@ -38,6 +34,7 @@
     "@typescript-eslint/parser": "^4.4.1",
     "@yagisumi/my-config-prettier": "^1.0.0",
     "cross-env": "^7.0.2",
+    "electron": "^10.1.3",
     "eslint": "^7.11.0",
     "eslint-config-prettier": "^6.12.0",
     "mocha": "^8.1.3",
@@ -54,5 +51,8 @@
     "ts-node": "^9.0.0",
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@yagisumi/e7ipc2-types": "^0.1.0"
   }
 }
